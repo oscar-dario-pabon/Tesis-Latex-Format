@@ -1,0 +1,166 @@
+\chapter{Desarrollo de la investigacion}
+
+\section{Desarrollo de la investigacion}
+Para el desarrollo de este proyecto se utilizaron cuestionarios o entrevistas por escrito con un total de 24 interrogantes en donde se buscaba profundizar en la interacción del usuario del Datapower y las operaciones que suelen realizar comúnmente.
+Toda la información recolectada se analizará con el fin de detectar las principales actividades que realiza el administrador de plataformas Datapower ®, y así poder lograr obtener un común denominador de las tareas más importantes de cada administrador entrevistado.
+\newline
+El tratamiento consiste en tomar todas las tareas y las variables que desean monitorear recolectadas de las entrevistas que se van a realizar a los administradores de las plataformas, junto con una valoración de importancia de cada una. A partir de esta información, se obtendrá el común denominador y se organizara de la más a la menos relevante. Con esta lista ordenada, se tomaran los 10 principales resultados de cada lista para el desarrollo del prototipo.
+\subsection{Recolección y análisis de la información}
+Se consiguió un grupo de personas que trabajan con la plataforma Datapower en diferentes empresas para obtener diversos puntos de vista de las tareas qué realizan en los Datapower de sus compañías. 
+\newline
+Se realizaron 24 preguntas para determinar las operaciones comunes qué realizan los administradores, de las cuales se detectaron tareas principales que cada administrador debe realizar y no están sistematizadas en la actualidad.
+\subsubsection{Perfil de los entrevistados}
+Las personas entrevistadas son bien administradores o desarrolladores sobre el Datapower, interactúan en su día a día con la plataforma, un grupo de 6 personas entrevistadas:
+\\
+\\
+\begin{tabu}{ X[l]  X[l] }
+Liliana Ortegón: &  Administradora Datapower Banco De Bogotá \\
+Diego Arias: &  Desarrollador y administrador Datapower Banco De Bogotá \\
+Manuel Jiménez: &  Desarrollador Datapower Banco De Bogotá \\
+German Aya: &  Administrador Datapower Banco Av. villas \\
+Javier Hernández: &  Administrador Datapower Banco Av. villas. \\
+Alexander Forero Lozano: &  Administrador Datapower ATH.    
+\end{tabu}
+
+
+\subsubsection{Análisis de los resultados obtenidos}
+Al realizar entrevistas con preguntas abiertas, no es posible realiza la tabulación de la información, sin embargo se realiza una consolidación en donde se identifica la información concerniente a la investigación y los puntos relevantes para el desarrollo del producto, adicional se logra evidenciar la necesidad de una herramienta que permita manejar/ administrar maquinas Datapower desde un punto central.
+\newline
+A continuación se detallan los puntos mas relevantes obtenidos de las 6 entrevistas realizadas.
+\begin{description}
+\item [Máquinas Datapower qué manejan] 1 - 4
+\item [Dominios qué puede tener un Datapower] 2 - 19
+\item [Tiempo invertido en la operación/administración] 2 - 5 horas
+\item [Herramientas qué manejan] : 
+
+	\begin{description}
+		\item [Notepad ++] para edición de los archivos xml
+		\item [Eclipse] plug-in de conexión dados por IBM
+		\item [Otro] Scripts o utilerias desarrolladas
+	\end{description}
+\item [Operaciones frecuentemente realizadas]:
+	\begin{description}
+		\item Despliegues de configuración en cada maquina Datapower.
+		\item Cargue de archivos XML.
+		\item Adición de host alias.
+		\item Generación de backups.
+		\item Manejo de certificados digitales.
+		\item Pruebas de conectividad hacia puertos.
+		\item Configuraciones especificas sobre cada datapower:
+		\begin{description}
+			\item XML firewall.
+			\item Load Balancer Group.
+			\item Multiprotocol Gateway.
+		\end{description}
+	\end{description}
+\item [Difilcutades Identificadas]:
+	\begin{description}
+		\item Manejo de métricas.
+		\item Revisión de los en ambiente productivo.
+		\item Monitoreo de las maquinas Datapower
+		\item Monitoreo del estado de los objeto en las maquinas Datapower.
+		\item Sincronización de configuración entre ambientes y maquinas.
+	\end{description}
+\end{description}
+
+\subsection{Requerimientos Obtenidos}
+Con base en la información recopilada mediante las entrevistas, se crea una lista de 10 requerimientos que traducen las principales operaciones que buscamos manejar mediante el prototipo y asi facilitar la operacion del datapower:
+\begin{enumerate}
+  \item Permitir vincular varias máquinas datapower y determinar los dominios y agrupar las máquinas como un ambiente.
+  \item Crear una funcionalidad que permita exportar configuraciones y/o objetos, y cargarlos en diferentes máquinas o dominios.
+  \item Implementar una opción que permita cargar XML en uno o varios Datapower.
+  \item Implementar una opción que permita administrar el manejo de host alias.
+  \item Crear una funcionalidad que permita crear backups de los Datapower, ya sea manual o de forma automatica de cada Datapower, de algun dominio especifico o de objetos del sistema.
+  \item Manejar un repositorio de certificados, sincronizarlos con los Datapower correspondientes y estar al tanto de la vigencia de todos los certificados de las diferentes máquinas.
+  \item Implementar una funcionalidad que permita consultar la conectividad de servicios externos.
+  \item Crear una funcionalidad qué permite descargar los logs de la maquina para su análisis.
+  \item Construir una opción que permita administrar los siguientes objetos Datapower
+  \begin{itemize}
+    \item XML Filewalls.
+    \item Grupos de balanceo.
+    \item Multiprotocol gateway.
+  \end{itemize}
+  \item Crear una opción qué permita visualizar los objetos Inactivos en cada maquina datapower asociada.
+\end{enumerate}
+\subsection{Casos de uso}
+ver anexo casos de uso.
+\newpage
+\subsection{Arquitectura del sistema}
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{DesarrolloInvestigacion/images/Aplication_Diagram.png}
+    \caption{Arquitectura Aplicacion.}
+\end{figure}
+se realizo un analisis del manejo de las tareas que se realizan hacia las maquinas datapower, estas se definen como operaciones; una operacion puede ser una invocacion hacia la interfaz SOAP o un script que se ejecuta por la linea de comandos (CLI), estas deben ser ejecutadas en cada maquina datapower y el resultado de cada una entregado al cliente para que valide su correcta ejecucion.
+\newline
+Dados los altos tiempos de procesamiento que puede implicar ejecutar una operacion en varias maquinas la solucion se plantea utilizando un patron SOA( \cite{o16} Asynchronous Queuing) de encolamiento asincrono de mensajes, con la implementacion de este patron de diseño surgen nos componentes de la aplicacion que se denominan SockaApp y SockaEngine.
+\newline
+\begin{description}	
+    \item [SockaApp:] es el componente que contiene la capa de presentación, negocio y persistencia, en pocas palabras una aplicación del patrón modelo vista controlador. Su principal función es la de realizar el manejo y registro de las operaciones y el registro de la información de las maquinas que se van a administrar, presentando al usuario una interfaz web desde la cual puede realizar las labores de administración definidas en el alcance de la investigación.
+
+    \item [SockaEngine] este componente es el encargado de realizar la conexión a cada una de las maquinas Datapower y ejecutar las operaciones recibidas por medio de la cola de mensajería bien sea los scripts en la conexión ssh-cli o la invocación hacia el servicio web de administración SOMA, recopilar el resultado de la ejecución en cada una de las maquinas y entregar a la cola de mensajería de respuesta toda la información de la ejecución.
+
+    \item [Modelo Operación] es el modelo de ejecución de operaciones definido que permite la interacción entre el componente sockaApp y el sockaEngine, para facilitar el intercambio de mensajes este modelo se traduce en una estructura json, este informa al engine como debe ejecutar cada operación indicándole que parámetros utiliza, las maquinas sobre las que debe ejecutarlo, las secuencias de pasos y que información debe retornar.
+\end{description}
+Apoyándose en el patrón de colas mensajería asíncronas el componente SockaApp entrega en la cola las operaciones que debe realizar el engine, y sin la premura de tener el cliente esperando por una respuesta el engine puede ejecutar la operación en cada una de las maquinas que le sea solicitado y retornar el resultado de la operación al componente app para que le notifique al usuario el resultado de la operación ejecutada.
+
+\begin{figure}[th!]
+    \centering
+    \includegraphics[width=1.0\textwidth]{DesarrolloInvestigacion/images/DiagramaModeloOperacion.png}
+    \caption{Modelo de las operaciones SockaEngine}
+\end{figure}
+
+\begin{lstlisting}[here,language=json,firstnumber=1,caption={Ejemplo mensaje enviado al engine para mostrar la informacion de un grupo de balanceo}]
+{
+  "name": "showLoadBalanceGroup",
+  "sessionID": "AC5",
+  "tipoAcceso": "SSH",
+  "variableResultado": ["grupoBalanceo"],
+  "parameters": [
+    {
+      "name": "domain","value": "Produccion"
+    },
+    {
+      "name": "loadBalancerName", 
+      "value": "LBG_Multiaplicacion_001"
+    }
+  ],
+  "steps": [
+    {
+      "name": "switchConfiguracionMode",
+      "execution": "STEP",
+      "script": "co"
+    },
+    {
+      "name": "switchDomain",
+      "execution": "STEP",
+      "script": "switch [domain]"
+    },
+    {
+      "name": "grupoBalanceo",
+      "execution": "STEP",
+      "script": "show loadbalancer-group [loadBalancerName]"
+    },
+    {
+      "name": "",
+      "execution": "STEP",
+      "script": "exit"
+    }
+  ],
+  "maquinas": [
+    {
+      "aliasMaquina": "tatapower01",
+      "ipMaquina": "54.149.246.187",
+      "puertoSSH": 9022,
+      "puertoSOMa": 5050,
+      "usuario": "admin",
+      "clave": "admin"
+    }
+  ]
+}
+\end{lstlisting}
+
+
+
+
+

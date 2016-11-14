@@ -1,0 +1,88 @@
+\section{Marco de referencia}
+\subsection{Marco teórico}
+IBM Datapower Es una plataforma de integración y seguridad comercializada por IBM, diseñada específicamente para cargas de trabajo móviles, cloud, API (interfaz de programación de aplicaciones), web, SOA (arquitectura orientada a servicios) y B2B (business-to-business).
+\\
+Actualmente en el mercado existen varias alternativas a Datapower ®, que cumplen con las mismas capacidades de integración de web services 
+\begin{itemize}
+    \item WSO2 Carbón, distribuido por WS02 
+    \item Cisco ACE XML Gateway, distribuido por Cisco
+    \item CA API Gateway
+    \item Axway API Gateway, distribuido por Axway.
+\end{itemize}
+
+
+\input{tablas/comparativoCaracteristicas}
+
+
+
+\subsubsection{IBM Datapower ® SOMA SOAP Configuration Management}
+SOMA es una interfaz de configuración que provee Datapower \cite{id1} para labores de automatización de configuración de elementos. Presenta mediante SOAP todas las operaciones que se pueden llegar a realizar en un Datapower ®, esta interfaz no se encuentra completamente documentada por parte de IBM, se limita a presentar únicamente ejemplos prácticos de cómo utilizar algunas operaciones de las más de 100 expuestas en el contrato del servicio SOMA.
+\subsubsection{IBM Datapower ® Gateway script}
+Es un modelo de programación definido para Datapower ® en firmware 7.2 y superiores, basado en ECMACScript que permite mediante lenguaje 
+JavaScript desarrollar funcionalidades y reglas de procesamiento sobre Datapower ®, sin dejar de lado la capacidad de procesamiento XML, ya que los script son interpretados a lenguaje XSLT para aprovechar el procesamiento de XML por hardware de Datapower ®.
+\subsubsection{Arquitectura orientada a servicios SOA}
+La definición de arquitectura, según la ISO42010, dice que son conceptos fundamentales y propiedades de un sistema, en su ambiente, concretados en sus elementos, relaciones y principios, que guían su diseño y evolución. Para la arquitectura SOA (Servicie Oriented Architecture), estos elementos son los servicios que enmascaran las funcionalidades que ofrece. 
+\newline
+Este tipo de arquitecturas define unos elementos clave para su funcionalidad:
+\begin{itemize}
+    \item Servicio
+    \item Composición
+    \item Contrato
+    \item Interfaz
+    \item Declaración
+    \item Modos de operación
+    \item Interoperabilidad
+\end{itemize}
+\subsection{Marco Conceptual}
+El proyecto se basa principalmente en metodologías de desarrollo web, debido a que lo que se quiere es centralizar en un solo punto, para que el administrador de las plataformas de Datapower ®, donde quiera que esté, que pueda administrar, monitorear y generar las métricas deseadas.
+\subsubsection{Aplicaciones web}
+Son sistemas de información que dan ciertas ventajas sobre las aplicaciones Stand-alone o aplicaciones de escritorio, como lo es manejo distribuido, sencillez en la instalación y presentaciones más llamativas para el usuario final. La principal herramienta de estos sistemas de información son los navegadores y en la actualidad cada navegador tiene su propio motor de Java Script y soporte para HTML5.
+\subsubsection{Frameworks de desarrollo Web}
+Existen varios frameworks para el desarrollo de estas aplicaciones, los cuales facilita la construcción de plataformas web, dependiendo de la experiencia del desarrollador. Existen unos que son muy especializados a lenguajes de alto nivel, como los son GWT y JSF (Java Server Faces \cite{id3}), por mencionar algunos.
+\newline
+GWT
+\newline
+GWT es un framework de Google, el cual realiza una transformación de código Java a código java script, para aqu
+ellos que desean desarrollar aplicaciones web, teniendo un vago conocimiento en HTML, java script y CSS
+\newline
+JSF (Java Server Faces)
+\newline
+JSF es un framework creado para desarrollar aplicaciones Java basadas en el patrón MVC, tiene 2 funciones principales, una es la de generar una interfaz de usuario en HTML, esta interfaz en el servidor es representada a través de un árbol de componentes, existe una relación 1 a 1 entre el árbol de componentes y la interfaz de usuario. La segunda función es responder a eventos generados por el usuario.
+\newline
+Por otro lado tenemos frameworks que son dedicados 100 por ciento al lado del navegador, que igualmente facilitan la labor del desarrollador, por mencionar algunos tenemos Angular, JQeury, Polymer, React, Backbone, Ember, entre otros.
+\subsubsection{XML}
+Es un metalenguaje diseñado para la organización y etiquetado de documentos, creado por el W3C (Word Wide Web Consortium). Entre sus principales ventajas:
+\begin{itemize}
+    \item Fácil procesamiento
+    \item Separa radicalmente el contenido y el formato de presentación
+    \item Diseñado para cualquier lenguaje
+\end{itemize}
+\subsubsection{JavaScript}
+Es un lenguaje de programación orientado a objetos multiplataforma, liviano y pequeño. Posee librerías estándar de objetos, como lo son Array, Date, y Math, al igual que un conjunto central de elementos del lenguaje, tales como operadores, estructuras de control y sentencias.
+\subsubsection{Estado del Arte.}
+En la actualidad existen 3 herramientas que facilitan la administración de la plataforma.
+\newline
+Datapower ® Buddy 
+\newline
+“DPBuddy es una herramienta de pago para automatizar la administración y el manejo de IBM Datapower ®. Automatiza la construcción, el despliegue y la entrega de configuraciones y archivos relacionados“ 
+\newline
+Urban Code
+\newline
+“IBM Urban Code Deploy instrumenta y automatiza el despliegue de aplicaciones, configuraciones de middleware y cambios en bases de datos en entornos de desarrollo, pruebas y producción. Este software permite que su equipo lleve a cabo despliegues on demand, tan a menudo como sea necesario o conforme a una planificación y con autoservicio. UrbanCode Deploy puede ayudar a su equipo a acelerar el tiempo de lanzamiento al mercado, reducir los costes y los riesgos” %\cite{ol5}
+\newline
+WebSphere Appliance Management Center for WebSphere Appliances (WAMC)
+\newline
+Provee la capacidad de administrar diversos appliance de manera centralizada, realizando las actividades principales requeridas por los Datapower ®, a nivel de administración, como:
+\begin{itemize}
+    \item Cargue de backups
+    \item Instalación de firmwares.
+    \item Monitoreo del appliance
+    \item Soporte de diversas versiones de Datapower ®.
+\end{itemize}
+Actualmente WAMC está fuera de soporte y descontinuado.
+Comparativo de las 3 alternativas existentes, contra las prestaciones que tendrá el prototipo a construir:
+\newline
+
+\input{tablas/comparativaHerramientas}
+
+\newpage

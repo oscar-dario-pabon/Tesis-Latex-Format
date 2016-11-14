@@ -1,0 +1,44 @@
+
+\chapter{Descripción de la investigación}
+\newpage
+\section{Título y definición del tema de investigación}
+\subsection*{Título}
+Prototipo para la administración centralizada de Datapower.
+\section{Estudio del problema de investigación}
+\subsection{Planteamiento del problema}
+Datapower , al ser un tipo de plataforma de alta disponibilidad debe ser confiables en su configuración debido a que muchas de las transacciones pasan por estos,  debe contar con las parametrizaciones exactas para garantizar que las transacciones fluyan hacia al destino configurado de manera correcta y no genere rechazos o enrutamientos errados. Existe un margen de riesgo alto en la configuración de cada equipo debido a que se debe hacer uno a uno manualmente, por parte de los administradores de la plataforma, como tal, no existe un punto centralizado que dé la confiabilidad de hacer la misma parametrización para todos los Datapower  de manera centralizada. 
+\newline
+Contando con una herramienta que facilite estos trabajos repetitivos, se disminuye drásticamente los tiempos de parametrización de toda la plataforma. Adicional a esto, podemos contar con un monitoreo en tiempo real que permita observar el comportamiento de cada equipo, en caso de requerirlo. Como valor agregado, se contarán con métricas que apoyen a la toma de decisiones y el gobierno de los servicios.
+\subsection{Formulación del problema}
+¿Cómo a través de una herramienta puedo administrar y monitorear a los diferentes Datapower  desde un punto centralizado?
+\subsection{Sistematización del problema}
+\begin{itemize}
+    \item ¿Cuáles son las principales acciones que se deberían identificar para la administración que se podrían automatizar para cada uno de los Datapower?
+    \item ¿Cuál es la mejor forma de almacenar los datos generados por las plataformas para mostrar información en tiempos oportunos?
+    \item ¿Cómo se puede realizar un piloto teniendo en cuenta la limitante de no tener un Datapower  físico?
+\end{itemize}
+\newpage
+\section{Objetivos de la investigación}
+\subsection{Objetivo general.}
+Construir un prototipo que permita desde un solo punto gestionar la administración y monitoreo de cada uno de los Datapower por medio de las interfaces de administración que estos ofrece
+\subsection{Objetivos específicos.}
+\begin{itemize}
+    \item Identificar las principales operaciones qué se requieran, mediante entrevistas a los diferentes administradores de la plataforma, para tener un punto base de cuáles operaciones se van a centralizar.
+    \item Diseñar un modelo de información de los diferentes atributos del sistema, analizando los parámetros y registros qué proporciona la plataforma para generar las métricas del sistema y su comportamiento.
+    \item Realizar un piloto al prototipo, con 4 máquinas virtuales simultáneas de los Datapower  que asemeje un entorno real y así poder comprobar su funcionalidad.
+\end{itemize}
+\newpage
+\section{Justificación de la investigación}
+\subsection{Justificación práctica}
+Los sistemas Datapower  pueden ser utilizadas en diferentes organizaciones y proveen seguridad y enrutamiento en las transacciones, generalmente se encuentran en alta disponibilidad y son gemelos en configuración y parámetros, en donde para su administración es necesario ingresar a cada uno por medio de una terminal a realizar las operaciones necesarias para su administración, esta tarea se puede volver algo dispendioso y es a su vez riesgoso, ya qué se puede incurrir en error humano y configurarlos de diferente manera. En la actualidad existen diferentes alternativas para centralizar la configuración de estos sistemas, pero estas alternativas no cubren las necesidades de un administrador en su día a día, de ahí la necesidad de crear una aplicación web que permita, tanto administrar como monitorear cada uno de las estaciones de una forma más eficiente y así facilitar la labor del administrador en la parametrización de cada Datapower  por cada ambiente de la organización.
+\newpage
+\section{Hipótesis de trabajo}
+Una aplicación web que permita realizar todos los procesos administrativos que se ejecutan a los Datapower  de forma centralizada, podría solucionar los siguientes inconvenientes encontrados en el proceso de levantamiento de información:
+\begin{itemize}
+    \item Es necesario repetir la misma configuración en las diversas máquinas, produciendo re trabajo innecesario.
+    \item Se incurre en el riesgo de realizar mal la configuración manual de algún componente en alguna de las máquinas, causando posibilidad de errores en la configuración.
+    \item Cada máquina genera sus propios logs y trazas dificultando analizar la información para toma de decisiones.
+    \item Por malas configuraciones, se producen fallos de conectividad, produciendo fallos críticos en las operaciones.
+    \item Cuando se decide aumentar las plataformas, aumenta la cantidad de tareas repetitivas de cada una, aumentando el tiempo en vincular nuevos dispositivos.
+\end{itemize}
+\newpage
